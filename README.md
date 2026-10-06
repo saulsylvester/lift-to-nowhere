@@ -1,4 +1,4 @@
-# Elevator to Nowhere
+# Lift to Nowhere
 
 A tiny arcade exploration game starring **Andy**. One elevator, 100 collectible discoveries, and a dangerous bonus floor: **101 — The Last Supper Club**. Get too close to its enormous carnivorous plant and Andy becomes lunch. The game-over screen lets you restart in the lobby with your discoveries intact.
 
