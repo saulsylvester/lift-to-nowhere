@@ -4,6 +4,8 @@ A tiny arcade exploration game starring **Andy**. One elevator, 100 collectible 
 
 This project was part of [Codex LDN](https://luma.com/codex-ldn-4?tk=etxzmW).
 
+![Gameplay screenshot of Andy exploring the Jellyfish Chandelier on floor 73](screenshots/gameplay.png)
+
 ## Play locally
 
 Run `python3 -m http.server 4173 --bind 127.0.0.1` from this folder, then open [the game](http://127.0.0.1:4173). No installation is needed to play.
