@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#211b2c">
+  <title>Elevator to Nowhere · An Andy adventure</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232b2236'/%3E%3Cpath d='M8 25V9h16v16M16 9v16M12 6h8' fill='none' stroke='%23dfad6d' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="arcade">
+    <header class="masthead">
+      <a class="wordmark" href="./" aria-label="Lift to Nowhere home"><span class="brand-mark">↟</span><span>LIFT<br><i>to Nowhere</i><span class="edition">AN ANDY ADVENTURE</span></span></a>
+      <div class="intro"><span class="eyebrow">101 FLOORS. ONE QUESTIONABLE PLANT.</span><p>Somewhere between here<br>and very, very elsewhere.</p></div>
+    </header>
+
+    <section class="cabinet" aria-label="Elevator to Nowhere game">
+      <div class="cabinet-bar"><span class="live-light"></span><span id="location-label">THE LOBBY</span><span class="bar-divider"></span><span class="small-label">YOU ARE ANDY</span><div class="cabinet-actions"><button id="sound-button" aria-label="Mute sound" title="Mute sound (M)">♫ <span>SOUND ON</span></button><button id="journal-button" title="Open Andy’s Discoveries (J)"><span class="stamp-icon">✧</span> <span id="discovery-count">00 / 100</span></button></div></div>
+      <div class="screen-wrap" id="screen-wrap">
+        <canvas id="game" width="480" height="270" tabindex="0" aria-label="Play as Andy. Move with WASD or arrow keys. Press E near objects to interact. Press J for discoveries."></canvas>
+        <div class="screen-vignette" aria-hidden="true"></div>
+        <div id="room-banner" class="room-banner"><span id="floor-tag">GROUND FLOOR</span><h1 id="room-title">A little out of the ordinary.</h1><p id="room-subtitle">The elevator is expecting you.</p></div>
+        <div id="interaction-hint" class="interaction-hint" hidden><kbd>E</kbd><span></span></div>
+        <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+        <div id="welcome" class="welcome"><span class="welcome-kicker">MEET YOUR TRAVELLER</span><strong>Hi, Andy.</strong><p>One elevator. One hundred peculiar places.<br>And one room that would like a word. Or a bite.</p><button id="start-button" class="primary-button">LET’S GO SOMEWHERE <span>↗</span></button><small>WASD / ARROWS TO WALK · E TO INTERACT</small></div>
+
+        <dialog id="panel-dialog" class="panel-dialog" aria-labelledby="panel-heading"><form id="floor-form" novalidate><button type="button" class="close-button" data-close aria-label="Close floor panel">×</button><div class="eyebrow">NOWHERE TRANSIT AUTHORITY</div><h2 id="panel-heading">Where to, Andy?</h2><p>Pick a floor. Trust the process. Probably.</p><label for="floor-input">DESTINATION · 1—101</label><div class="floor-input-wrap"><span>↟</span><input id="floor-input" name="floor" inputmode="numeric" type="text" maxlength="12" autocomplete="off" placeholder="07" aria-describedby="floor-error"></div><p id="floor-error" class="form-error" aria-live="polite"></p><div class="quick-floors"><span>FEELING CURIOUS?</span><button type="button" data-floor="1">01</button><button type="button" data-floor="7">07</button><button type="button" data-floor="13">13</button><button type="button" data-floor="42">42</button><button type="button" data-floor="101">101</button></div><button class="primary-button" type="submit">TAKE ME THERE <span>↑</span></button><small>ENTER TO DEPART · ESC TO STAY</small></form></dialog>
+
+        <dialog id="gameover-dialog" class="gameover-dialog" aria-labelledby="gameover-heading" aria-describedby="gameover-description"><div class="eyebrow">FLOOR 101 · THE LAST SUPPER CLUB</div><div class="gameover-symbol" aria-hidden="true">✿</div><h2 id="gameover-heading">GAME OVER</h2><p id="gameover-description">Andy was delicious.<br>The plant would like to see the dessert menu.</p><button id="restart-button" class="primary-button">ANOTHER ANDY, PLEASE <span>↻</span></button><small>Your discoveries are safe. Your dignity is compost.</small></dialog>
+
+        <dialog id="journal-dialog" class="journal-dialog" aria-labelledby="journal-heading"><button class="close-button" data-close aria-label="Close discoveries">×</button><div class="eyebrow">A RECORD OF IMPROBABLE THINGS</div><h2 id="journal-heading">Andy’s Discoveries</h2><p id="journal-summary">Every door has a story. Go find yours.</p><div class="journal-legend"><span>✧ COLLECTED</span><span>○ VISITED</span><span>· UNEXPLORED</span></div><div id="journal-grid" class="journal-grid"></div><p class="journal-footnote">Your discoveries are saved on this device.</p></dialog>
+      </div>
+      <div class="status-bar"><span><span class="status-dot"></span><span id="objective">YOUR ADVENTURE STARTS HERE</span></span><span id="floor-readout">FLOOR <b>G</b></span></div>
+    </section>
+
+    <footer><div class="controls"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> <span class="or">/</span> <kbd>↑</kbd><kbd>←</kbd><kbd>↓</kbd><kbd>→</kbd><span>MOVE</span></span><span><kbd>E</kbd><span>INTERACT</span></span><span><kbd>J</kbd><span>DISCOVERIES</span></span></div><span class="footer-note">TAKE YOUR TIME. THE BUILDING ISN’T GOING ANYWHERE.<i>Probably.</i></span></footer>
+    <p class="keyboard-note">Best explored with a keyboard and a little curiosity.</p>
+  </main>
+  <script type="module" src="src/game.mjs"></script>
+</body>
+</html>
